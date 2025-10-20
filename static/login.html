@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Login – Impact Chat</title>
+
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Login / Register</h1>
+
+      <div class="row">
+        <input id="email" placeholder="email" />
+        <input id="password" type="password" placeholder="password" />
+      </div>
+
+      <div class="row">
+        <input id="name" placeholder="name (for register)" />
+        <select id="gender">
+          <option value="unspecified">Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <button id="btn-login">Login</button>
+        <button id="btn-register">Register</button>
+      </div>
+
+      <div id="status"></div>
+    </div>
+
+    <script src="/static/script_login.js"></script>
+  </body>
+</html>
