@@ -1,24 +1,28 @@
 version: "3.9"
+
 services:
   db:
     image: postgres:16
-    restart: unless-stopped
     environment:
       POSTGRES_USER: impact
       POSTGRES_PASSWORD: impact
       POSTGRES_DB: impact_chat
     volumes:
       - dbdata:/var/lib/postgresql/data
+
   app:
     build: .
-    depends_on: [db]
+    depends_on:
+      - db
     environment:
       DATABASE_URL: postgresql+psycopg2://impact:impact@db:5432/impact_chat
       ALLOWED_ORIGINS: '["*"]'
       SIO_CORS_ORIGINS: '["*"]'
       JWT_SECRET: change_me
-    ports: ["8000:8000"]
+    ports:
+      - "8000:8000"
     volumes:
       - ./uploads:/app/uploads
+
 volumes:
-  dbdata:
+  dbdata: {}
